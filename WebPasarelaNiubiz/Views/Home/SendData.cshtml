@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    string SessionToken = ViewData["SessionToken"] as string;
+    @*<script type="text/javascript" src="https://static-content-qas.vnforapps.com/v2/js/checkout.js?qa=true"></script>
+
+    <script type="text/javascript">function openForm() {
+            VisanetCheckout.configure({
+                sessiontoken: '74add7fa14b85ce420836f01f79177bcbf42a6855754272f3bc564f3921d8983',
+                channel: 'web',
+                merchantid: '456879856',
+                purchasenumber: 2020100901,
+                amount: 10.5,
+                expirationminutes: '20',
+                timeouturl: 'about:blank',
+                merchantlogo: 'img/comercio.png',
+                formbuttoncolor: '#000000',
+                action: 'paginaRespuesta',
+                complete: function (params) {
+                    alert(JSON.stringify(params));
+                }
+            });
+            VisanetCheckout.open();
+        }</script>*@
+
+}
+
+@*<html>
+<body>
+    <div>
+        <button onclick="openForm();">Pagar</button>
+    </div>
+</body>
+</html>*@
+
+@using (Html.BeginForm("ProcesaTransaccion", "Home", FormMethod.Post, new { @class = "form", id = "TransacForm" }))
+{
+    <script type="text/javascript" src="https://static-content-qas.vnforapps.com/v2/js/checkout.js?qa=true"
+            data-sessiontoken='@SessionToken'
+            data-channel="web"
+            data-merchantid="456879856"
+            data-purchasenumber=2020100901
+            data-amount=10.5
+            data-expirationminutes="20"
+            data-timeouturl="about:blank"
+            data-merchantlogo="img/comercio.png"
+            data-formbuttoncolor="#000000"></script>
+    }

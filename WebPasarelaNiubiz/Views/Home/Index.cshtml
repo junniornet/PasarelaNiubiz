@@ -1,0 +1,46 @@
+﻿@model UserModel
+
+@using (Html.BeginForm("SendData", "Home", FormMethod.Post, new { @class = "form", id = "SendInfoForm" }))
+{
+    @Html.ValidationSummary()
+
+    <div style="margin-bottom: 10px;">
+        @Html.LabelFor(m => m.Nombres)
+        @Html.TextBoxFor(m => m.Nombres)
+        @Html.ValidationMessageFor(m => m.Nombres)
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        @Html.LabelFor(m => m.Apellidos)
+        @Html.TextBoxFor(m => m.Apellidos)
+        @Html.ValidationMessageFor(m => m.Apellidos)
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        @Html.LabelFor(m => m.TipoDocumento)
+        @Html.TextBoxFor(m => m.TipoDocumento)
+        @Html.ValidationMessageFor(m => m.TipoDocumento)
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        @Html.LabelFor(m => m.NumeroDocumento)
+        @Html.TextBoxFor(m => m.NumeroDocumento)
+        @Html.ValidationMessageFor(m => m.NumeroDocumento)
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        @Html.LabelFor(m => m.Celular)
+        @Html.TextBoxFor(m => m.Celular)
+        @Html.ValidationMessageFor(m => m.Celular)
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <input type="submit" value="Ir al botón de pago" class="btn btn-primary" />
+    </div>
+}
